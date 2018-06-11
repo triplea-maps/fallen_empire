@@ -8251,7 +8251,7 @@
     <property name="Sea Units" value="false" editable="true">
       <boolean />
     </property>
-    <property name="mapName" value="Fallen Empire" editable="false">
+    <property name="mapName" value="fallen_empire" editable="false">
       <string />
     </property>
     <property name="notes">
