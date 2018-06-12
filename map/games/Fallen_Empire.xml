@@ -2395,6 +2395,7 @@
     <unit name="faun_archer" />
     <unit name="centaur" />
     <unit name="waking_willow" />
+    <unit name="abomination" />
     <unit name="templar_knight" />
     <unit name="gargoyle" />
     <unit name="axe_raider" />
@@ -2647,6 +2648,10 @@
       <cost resource="PUs" quantity="10" />
       <result resourceOrUnit="centaur" quantity="1" />
     </productionRule>
+    <productionRule name="buy_abomination">
+      <cost resource="PUs" quantity="5" />
+      <result resourceOrUnit="abomination" quantity="1" />
+    </productionRule>
     <productionRule name="buy_templar_knight">
       <cost resource="PUs" quantity="10" />
       <result resourceOrUnit="templar_knight" quantity="1" />
@@ -2706,7 +2711,7 @@
       <frontierRules name="buy_centaur" />
     </productionFrontier>
     <productionFrontier name="Abyssal_HordeFrontier">
-      <frontierRules name="buyhoplite" />
+      <frontierRules name="buyabomination" />
     </productionFrontier>
     <productionFrontier name="Sacred_OrderFrontier">
       <frontierRules name="buy_templar_knight" />
@@ -2768,7 +2773,7 @@
       <option name="attack" value="5" />
       <option name="defense" value="3" />
       <option name="hitPoints" value="2" />
-      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <!--LIST FOOT-->
       <option name="typeAA" value="charge" />
       <option name="attackAA" value="2" />
@@ -2980,7 +2985,7 @@
       <option name="movement" value="3" />
       <option name="attack" value="3" />
       <option name="defense" value="2" />
-      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <!--LIST FOOT-->
       <option name="typeAA" value="charge" />
       <option name="attackAA" value="3" />
@@ -3170,7 +3175,7 @@
       <option name="movement" value="3" />
       <option name="attack" value="3" />
       <option name="defense" value="1" />
-      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <!--LIST FOOT-->
       <option name="typeAA" value="charge" />
       <option name="attackAA" value="0" />
@@ -3228,6 +3233,14 @@
       <option name="defense" value="4" />
       <option name="hitPoints" value="2" />
     </attachment>
+    <!--UNITS ABYSSAL HORDE-->
+    <attachment name="unitAttachment" attachTo="abomination" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
+      <option name="transportCost" value="1" />
+      <option name="movement" value="2" />
+      <option name="attack" value="2" />
+      <option name="defense" value="2" />
+      <option name="createsResourcesList" value="-2:supply" />
+    </attachment>
     <!--UNITS SACRED ORDER-->
     <attachment name="unitAttachment" attachTo="templar_knight" javaClass="games.strategy.triplea.attachments.UnitAttachment" type="unitType">
       <option name="transportCost" value="1" />
@@ -3262,7 +3275,7 @@
       <option name="movement" value="3" />
       <option name="attack" value="2" />
       <option name="defense" value="2" />
-      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="targetsAA" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <!--LIST FOOT-->
       <option name="typeAA" value="charge" />
       <option name="attackAA" value="0" />
@@ -6618,8 +6631,8 @@
       <option name="combatDefenseEffect" value="lizard_javeliner:brigand:hunter" count="1" />
     </attachment>
     <attachment name="territoryEffectAttachment" attachTo="swamp" javaClass="games.strategy.triplea.attachments.TerritoryEffectAttachment" type="territoryEffect">
-      <option name="combatOffenseEffect" value="lizard_javeliner:toadrider:river_lurker" count="1" />
-      <option name="combatDefenseEffect" value="lizard_javeliner:toadrider:river_lurker" count="1" />
+      <option name="combatOffenseEffect" value="lizard_javeliner:toadrider:river_lurker:abomination" count="1" />
+      <option name="combatDefenseEffect" value="lizard_javeliner:toadrider:river_lurker:abomination" count="1" />
     </attachment>
     <attachment name="territoryEffectAttachment" attachTo="cave" javaClass="games.strategy.triplea.attachments.TerritoryEffectAttachment" type="territoryEffect">
       <option name="combatOffenseEffect" value="hoplite" count="-1" />
@@ -6696,7 +6709,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_hoplite_protection" attachTo="hoplite" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
       <option name="faction" value="enemy" />
       <option name="side" value="offence:defence" />
       <option name="dice" value="strength" />
@@ -6707,7 +6720,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_giant_turtle_protection" attachTo="giant_turtle" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
       <option name="faction" value="enemy" />
       <option name="side" value="offence:defence" />
       <option name="dice" value="strength" />
@@ -6718,7 +6731,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_palisade_protection" attachTo="palisade" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
       <option name="faction" value="enemy" />
       <option name="side" value="defence" />
       <option name="dice" value="strength" />
@@ -6729,7 +6742,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_war_wagon_protection" attachTo="war_wagon" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne:toadrider:steppe_raider:khans_guard:hellrider:skullcaller:prodromos:cataphract:centaur:boar_rider:centaur_ne:assassin:bombard:earth_elementalist:direshade:skylizard:bloodparrot:eagle:tengu_hunter:tengu_warrior:gargoyle:skylizard_ne:river_lurker:sea_serpent:giant_turtle:oni:waking_willow:giant:burrower:giant_ne:hemiolia:hulk:fireship:trireme:palisade:war_wagon:tank" />
       <option name="faction" value="enemy" />
       <option name="side" value="offence:defence" />
       <option name="dice" value="strength" />
@@ -6740,7 +6753,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_river_lurker_flank" attachTo="river_lurker" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <option name="faction" value="enemy" />
       <option name="side" value="defence" />
       <option name="dice" value="strength" />
@@ -6751,7 +6764,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_steppe_raider_flank" attachTo="steppe_raider" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <option name="faction" value="enemy" />
       <option name="side" value="offence" />
       <option name="dice" value="strength" />
@@ -6762,7 +6775,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_skylizard_support" attachTo="skylizard" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <option name="faction" value="allied" />
       <option name="side" value="offence" />
       <option name="dice" value="strength" />
@@ -6773,7 +6786,7 @@
       <option name="players" value="Saurian_Alliance:Pirate_Federation:White_Khanate:Fallen_Empire:Winged_Dominion:Flame_Nation:Warlock_Council:Polis_League:Forest_Folk:Abyssal_Horde:Sacred_Order:Winter_Kingdom:Independent" />
     </attachment>
     <attachment name="supportAttachment_palisade_support" attachTo="palisade" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <option name="faction" value="allied" />
       <option name="side" value="defence" />
       <option name="dice" value="strength" />
@@ -6796,7 +6809,7 @@
     </attachment>
     <!--LEADERSHIP (GENERATED)-->
     <attachment name="supportAttachment_khans_guard_leadership_foot" attachTo="khans_guard" javaClass="games.strategy.triplea.attachments.UnitSupportAttachment" type="unitType">
-      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
+      <option name="unitType" value="lizard_impaler:lizard_javeliner:pirate:brigand:legionary:crossbowman:bloodmage:hoplite:peltast:faun_archer:abomination:templar_knight:axe_raider:berserker:peasant:spearman:hunter:axe_raider_ne:hoplite_ne:lizard_impaler_ne" />
       <option name="faction" value="allied" />
       <option name="side" value="offence:defence" />
       <option name="dice" value="strength" />
