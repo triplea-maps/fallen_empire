@@ -2711,7 +2711,7 @@
       <frontierRules name="buy_centaur" />
     </productionFrontier>
     <productionFrontier name="Abyssal_HordeFrontier">
-      <frontierRules name="buyabomination" />
+      <frontierRules name="buy_abomination" />
     </productionFrontier>
     <productionFrontier name="Sacred_OrderFrontier">
       <frontierRules name="buy_templar_knight" />
