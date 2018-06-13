@@ -2665,6 +2665,11 @@
       <cost resource="PUs" quantity="6" />
       <result resourceOrUnit="axe_raider" quantity="1" />
     </productionRule>
+    <productionRule name="buy_nothing">
+      <cost resource="PUs" quantity="42" />
+      <cost resource="supply" quantity="42" />
+      <result resourceOrUnit="PUs" quantity="0" />
+    </productionRule>
     <productionFrontier name="Saurian_AllianceFrontier">
       <frontierRules name="buy_lizard_impaler" />
       <frontierRules name="buy_lizard_javeliner" />
@@ -2721,6 +2726,7 @@
       <frontierRules name="buy_axe_raider" />
     </productionFrontier>
     <productionFrontier name="IndependentFrontier">
+      <frontierRules name="buy_nothing" />
     </productionFrontier>
     <playerProduction player="Saurian_Alliance" frontier="Saurian_AllianceFrontier" />
     <playerProduction player="Pirate_Federation" frontier="Pirate_FederationFrontier" />
