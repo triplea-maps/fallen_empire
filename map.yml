@@ -1,0 +1,3 @@
+map_name: fallen_empire
+games:
+- {game_name: 'Fallen Empire: Raising Banners', file_name: Fallen_Empire.xml}
